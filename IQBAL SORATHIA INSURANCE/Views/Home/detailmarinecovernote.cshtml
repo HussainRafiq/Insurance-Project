@@ -1,0 +1,89 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.covernotewithpolicy
+
+@{
+    ViewBag.Title = "detailmarinecovernote";
+    Layout = "~/Views/Shared/detail.cshtml";
+}
+
+<h2>Marine Cover Note</h2>
+
+<div style="font-size:15px;" ><hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label" for="nameofbank">Date</label>                 <div class="col-md-10">
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.date)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">CNO</label>                 <div class="col-md-10">
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.cno)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Name Of Bank</label>                 <div class="col-md-10">
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.nameofbank)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Name Of Insured</label>                 <div class="col-md-10">
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.nameofinsured)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Equivalent Values</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.equivalentvalue)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Foreign Values</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.foreignvalues)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Pakistan Rs</label>      </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.pakrs)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Item</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.item)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Slipment Form</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.slipmentfrom)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Policy No</label>   </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.policy1)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Remarks</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.man.remarks)
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adinsuranceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="policy">
+    <Key>
+      <PropertyRef Name="cno" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="policy1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vessel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="invalue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="grosspremium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="netpremium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="receipt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="inducement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="renalls" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateofexpiry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="receipt">
+    <Key>
+      <PropertyRef Name="receipt1" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="receipt1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="policy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="marsin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="f" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="e" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="m" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hull" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="health" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="marinecover">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nameofbank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fvalues" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pakrs" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="slipmint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="policyno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="adinsuranceEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="policies" EntityType="Self.policy" />
+    <EntitySet Name="receipts" EntityType="Self.receipt" />
+    <EntitySet Name="marinecovers" EntityType="Self.marinecover" />
+    <EntitySet Name="types" EntityType="Self.type" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,118 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.endousment
+
+@{
+    ViewBag.Title = "detailendousement";
+    Layout = "~/Views/Shared/detail.cshtml";
+}
+
+<h2>Detail Registered Endousement</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label" for="nameofbank">Date</label>
+        </dt>
+   
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Endousement</label>
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.endousment1)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Policy</label>
+     </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.policy)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Name Of Insured</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameofinsured)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Sum Insured</label>
+ </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suminsured)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Date Of Expiry</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofexpiry)
+        </dd>
+        <label class="control-label " style="color:green" for="nameofbank">ADD</label>
+        <br />
+            <dt>
+                <label class="control-label" for="nameofbank">Gross Premium</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.addgross)
+            </dd>
+
+            <dt>
+                <label class="control-label" for="nameofbank">Net Premium</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.addnet)
+            </dd>
+        <label class="control-label" style="color:red" for="nameofbank">LESS</label>    <br />
+            <dt>
+                <label class="control-label" for="nameofbank">Gross Premium</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lessgross)
+            </dd>
+
+            <dt>
+                <label class="control-label" for="nameofbank">Net Premium</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lessnet)
+            </dd>
+
+            <dt>
+                <label class="control-label" for="nameofbank">Receipt</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.receipt)
+            </dd>
+
+            <dt>
+                <label class="control-label" for="nameofbank">Detail</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.detail)
+            </dd>
+
+            <dt>
+                <label class="control-label" for="nameofbank">Remarks</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.remarks)
+            </dd>
+
+</dl>
+</div>

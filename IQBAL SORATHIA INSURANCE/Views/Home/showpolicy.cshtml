@@ -1,0 +1,128 @@
+﻿@model IEnumerable<IQBAL_SORATHIA_INSURANCE.Models.policywithtype>
+
+@{
+    ViewBag.Title = "showpolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show Registered Policy</h2>
+  <div ><label class="control-label" for="nameofbank">Search BY Type</label>
+    @Html.DropDownList("type", new SelectList(ViewBag.type, "id", "name"), "Choose Type", new { id = "dd", @class = "form-control", onChange = "show(this.value)" })
+<a class="btn btn-success"  href="/home/showpolicy" >Show All</a>
+    </div>
+<hr />
+    <style>
+        td {
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        function show(id) {
+
+
+            window.location.href = "/home/showpolicy/" + id;
+
+
+
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+
+<div class="row" style="margin:3px;">
+    <table class="table table-dark col-md-10 col-lg-10"  style="font-size:10px;">
+        <tr>
+            <th>Date </th>
+            <th>Policy No.</th>
+            <th>Name Of Insured</th>
+            <th>Sum Insured Value</th>
+            <th>Gross Premium</th>
+            <th>Net Premium</th>
+            <th>Receipt</th>
+            <th>Endousement</th>
+            <th>Date Of Expiry</th>
+            <th>Type</th>
+            <th>CNO</th>
+            <th>Risk</th>
+            <th>Name Of Vessels</th>
+            <th>Detail</th>
+            <th>Class </th>
+            <th>Vehicle Detail        </th>
+            <th>Remarks</th>
+
+            <th></th>
+        </tr>
+        <tbody style="overflow:auto; height:500px;">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.policy1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.nameofinsured)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.suminsuredvalue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.grosspremium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.netpremium)
+                    </td>
+                    <td><a href="\home\detailreceipt\@Html.DisplayFor(modelItem => item.rep.id)">@Html.DisplayFor(modelItem => item.rep.receipt1)</a></td>
+                    <td>
+                        <a href="/home/showendousement?number=@Html.DisplayFor(modelItem => item.pol.endousement)">@Html.DisplayFor(modelItem => item.pol.endousement)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.dateofexpiry)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.typ.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.cno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.risk)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.nameofvessel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.detail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.@class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.vehicledetail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pol.remarks)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Editpolicy", new { id = item.pol.id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Details", "detailpolicy", new { id = item.pol.id }, new { @class = "btn btn-success", target = "_blank" })
+                        @Html.ActionLink("Delete", "deletepolicy", new { id = item.pol.id }, new { @class = "btn btn-danger" })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>

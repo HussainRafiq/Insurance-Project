@@ -1,0 +1,174 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.policywithtype
+
+
+@{
+    ViewBag.Title = "detailpolicy";
+       Layout = "~/Views/Shared/detail.cshtml";
+}
+
+<h2>Detail Registered Policy</h2>
+
+<div>
+	<hr />
+
+    <dl class="dl-horizontal"  >
+        <dt>
+            <label class="control-label" for="nameofbank">Date</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.date)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Policy No</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.policy1)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Name Of Insured</label>       </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.nameofinsured)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Sum Insured Value</label</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.suminsuredvalue)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Gross Premium</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.grosspremium)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Net Premium</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.netpremium)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Receipt</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rep.receipt1)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Endousment</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.endousement)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Date Of Expiry</label></dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.dateofexpiry)
+        </dd>
+
+        <dt><label class="control-label" for="nameofbank">Type</label></dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typ.name)
+        </dd>
+        <div id="cno" style="display:block">
+            <dt><label class="control-label" for="nameofbank">CNO</label></dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.cno)
+            </dd>
+        </div>
+           <div id="risk">
+            <dt><label class="control-label" for="nameofbank">Risk</label></dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.risk)
+            </dd>
+        </div>
+        <div id="vessel">
+            <dt><label class="control-label" for="nameofbank">Name Of Vessel</label></dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.nameofvessel)
+            </dd>
+        </div>
+        <div id="detail">
+            <dt><label class="control-label" for="nameofbank">Detail</label></dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.detail)
+            </dd>
+        </div>
+        <div id="class">
+            <dt><label class="control-label" for="nameofbank">Class</label></dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.@class)
+            </dd>
+        </div>
+        <div id="vdetail">
+            <dt><label class="control-label" for="nameofbank">Vehicle Detail</label>  </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pol.vehicledetail)
+            </dd>
+        </div>
+        <dt><label class="control-label" for="nameofbank">Remarks</label>  </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pol.remarks)
+        </dd>
+
+    </dl>
+    <script>
+
+        show(@Html.DisplayFor(modal=>modal.typ.id));
+        function show(id) {
+            var cno = document.getElementById("cno").style.display = "none";
+            var vessel = document.getElementById("vessel").style.display = "none";
+            var risk = document.getElementById("risk").style.display = "none";
+            var detail = document.getElementById("detail").style.display = "none";
+            var clas = document.getElementById("class").style.display = "none";
+            var vdetail = document.getElementById("vdetail").style.display = "none";
+            if (id == 1) {
+                var cno = document.getElementById("cno").style.display = "block";
+
+                var vessel = document.getElementById("vessel").style.display = "block";
+
+            } else if (id == 2) {
+                var risk = document.getElementById("risk").style.display = "block";
+
+            } else if (id == 3) {
+                var risk = document.getElementById("risk").style.display = "block";
+
+            } else if (id == 4) {
+                var risk = document.getElementById("risk").style.display = "block";
+                var vdetail = document.getElementById("vdetail").style.display = "block";
+
+            }
+            else if (id == 5) {
+                var risk = document.getElementById("risk").style.display = "block";
+                var detail = document.getElementById("detail").style.display = "block";
+
+            } else if (id == 6) {
+                var risk = document.getElementById("risk").style.display = "block";
+                var clas = document.getElementById("class").style.display = "block";
+
+                var detail = document.getElementById("detail").style.display = "block";
+
+            }
+            else if (id == 7) {
+                var risk = document.getElementById("risk").style.display = "block";
+
+                var detail = document.getElementById("detail").style.display = "block";
+
+            }
+
+
+
+        }
+    </script>
+
+</div>

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="adinsuranceModelStoreContainer" CdmEntityContainer="adinsuranceEntities1">
+    <EntitySetMapping Name="endousments">
+      <EntityTypeMapping TypeName="adinsuranceModel.endousment">
+        <MappingFragment StoreEntitySet="endousment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="endousment1" ColumnName="endousment" />
+          <ScalarProperty Name="policy" ColumnName="policy" />
+          <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+          <ScalarProperty Name="suminsured" ColumnName="suminsured" />
+          <ScalarProperty Name="dateofexpiry" ColumnName="dateofexpiry" />
+          <ScalarProperty Name="addgross" ColumnName="addgross" />
+          <ScalarProperty Name="addnet" ColumnName="addnet" />
+          <ScalarProperty Name="lessgross" ColumnName="lessgross" />
+          <ScalarProperty Name="lessnet" ColumnName="lessnet" />
+          <ScalarProperty Name="receipt" ColumnName="receipt" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marinecovers">
+      <EntityTypeMapping TypeName="adinsuranceModel.marinecover">
+        <MappingFragment StoreEntitySet="marinecover">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="nameofbank" ColumnName="nameofbank" />
+          <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+          <ScalarProperty Name="foreignvalues" ColumnName="foreignvalues" />
+          <ScalarProperty Name="pakrs" ColumnName="pakrs" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="slipmentfrom" ColumnName="slipmentfrom" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="equivalentvalue" ColumnName="equivalentvalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="policies">
+      <EntityTypeMapping TypeName="adinsuranceModel.policy">
+        <MappingFragment StoreEntitySet="policy">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="policy1" ColumnName="policy" />
+          <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+          <ScalarProperty Name="suminsuredvalue" ColumnName="suminsuredvalue" />
+          <ScalarProperty Name="grosspremium" ColumnName="grosspremium" />
+          <ScalarProperty Name="netpremium" ColumnName="netpremium" />
+          <ScalarProperty Name="receipt" ColumnName="receipt" />
+          <ScalarProperty Name="endousement" ColumnName="endousement" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="dateofexpiry" ColumnName="dateofexpiry" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cno" ColumnName="cno" />
+          <ScalarProperty Name="risk" ColumnName="risk" />
+          <ScalarProperty Name="nameofvessel" ColumnName="nameofvessel" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="vehicledetail" ColumnName="vehicledetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receipts">
+      <EntityTypeMapping TypeName="adinsuranceModel.receipt">
+        <MappingFragment StoreEntitySet="receipt">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="receipt1" ColumnName="receipt" />
+          <ScalarProperty Name="policy" ColumnName="policy" />
+          <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+          <ScalarProperty Name="marine" ColumnName="marine" />
+          <ScalarProperty Name="fire" ColumnName="fire" />
+          <ScalarProperty Name="engineering" ColumnName="engineering" />
+          <ScalarProperty Name="motor" ColumnName="motor" />
+          <ScalarProperty Name="miscilinious" ColumnName="miscilinious" />
+          <ScalarProperty Name="hull" ColumnName="hull" />
+          <ScalarProperty Name="health" ColumnName="health" />
+          <ScalarProperty Name="remainingnet" ColumnName="remainingnet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="adinsuranceModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="types">
+      <EntityTypeMapping TypeName="adinsuranceModel.type">
+        <MappingFragment StoreEntitySet="type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

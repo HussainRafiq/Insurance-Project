@@ -1,0 +1,105 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.receipt
+
+@{
+    ViewBag.Title = "detailreceipt";
+    Layout = "~/Views/Shared/detail.cshtml";
+}
+
+<h2>Detail Registered Receipt</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+
+            <label class="control-label" for="nameofbank">Date</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+
+            <label class="control-label" for="nameofbank">Receipt</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.receipt1)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Policy</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.policy)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Name Of Insured</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameofinsured)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Marine</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marine)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Fire</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fire)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Engineering</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.engineering)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Motor</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.motor)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Miscellinious</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.miscilinious)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Hulk</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hull)
+        </dd>
+
+        <dt>
+            <label class="control-label" for="nameofbank">Health</label>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.health)
+        </dd>
+
+
+    </dl>
+</div>

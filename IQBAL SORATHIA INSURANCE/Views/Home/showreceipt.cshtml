@@ -1,0 +1,75 @@
+﻿@model IEnumerable<IQBAL_SORATHIA_INSURANCE.Models.receipt>
+
+@{
+    ViewBag.Title = "showreceipt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Receipt</h2>
+<style>
+    td {
+        font-size: 12px;
+    }
+</style>
+
+
+<table class="table table-dark">
+    <tr>
+        <th>Date</th>
+        <th>Receipt</th>
+        <th>Policy</th>
+        <th>Name Of Insured</th>
+        <th>Marine</th>
+        <th>Fire</th>
+        <th>Engineering</th>
+        <th>Motor</th>
+        <th>Miscellinious</th>
+        <th>Hulk</th>
+        <th>Health</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.receipt1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.policy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameofinsured)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.engineering)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.motor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.miscilinious)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hull)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.health)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "detailreceipt", new { id = item.id }, new { @class = "btn btn-success", target = "_blank" })
+@Html.ActionLink("Edit", "editreceipt", new { id = item.id }, new { @class = "btn btn-success"})
+@Html.ActionLink("Delete", "deletereceipt", new { id = item.id }, new { @class = "btn btn-danger" })
+      </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard - Iqbal Sorathia</title>
+    @Styles.Render("~/Content/css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+</head>
+<body style="padding:0px; margin:0px">
+    <style>
+        .dropdown-item{
+            font-size:12px;
+
+        }
+        .spani {
+            font-size: 12px;
+        }
+
+    </style>
+
+
+    <nav class=" bounc animated navbar navbar-expand navbar-dark bg-dark static-top row" style="padding:0px; margin:0px;">
+        <a class="navbar-brand mr-1 col-md-4 col-sm-12 col-lg-4" style="font-size:18px;" href="/home/index"><strong>Iqbal Sorathia</strong></a>
+<h4 class="row col-md-7 " style="float:left;  color:white;"><span class="col-md-4"><strong>Date : </strong><span id="date">30-09-2019</span></span><span class="col-md-4"><strong>Time : </strong><span id="time">03 : 00 : 00</span></span></h4>
+
+    </nav>
+
+    <script>
+        var hours, minutes, second,day,month,year;
+        var myVar = setInterval(function () {
+            var currentTime = new Date(),
+      hours = currentTime.getHours(),
+      minutes = currentTime.getMinutes();
+            second = currentTime.getSeconds();
+            day = currentTime.getDate();
+            month = currentTime.getUTCMonth();
+            year = currentTime.getFullYear();
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (second < 10) {
+                second = "0" + second
+            }
+            document.getElementById("time").innerText = hours + " : " + minutes + " : " + second;
+            document.getElementById("date").innerText = day + " / " + month + " / " + year;
+        },1000);
+       
+
+
+
+
+
+    </script>
+
+
+    <div id="wrapper" style="padding:0px; margin:0px">
+        <!-- Sidebar -->
+        <ul class="sidebar navbar-nav row" style="margin:0px;">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home/index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span style="font-size:12px;">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown"  href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span style="font-size:15px;">Marine Cover Note </span><i class="fa fa-toggle-down"></i>
+                </a>
+                <div class="dropdown-menu" style="background-color:white; width:220px; border:2px black solid;" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item " href="/home/addmarinecovernote">Add The Marine Cover Note</a>
+                    <a class="dropdown-item " href="/home/showmarinecovernote">Shows The Marine Cover Note</a>
+                </div>
+ </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span style="font-size:15px;">Policy</span>
+                </a>
+                <div class="dropdown-menu"  style="background-color:white; width:220px; border:2px black solid;" aria-labelledby="pagesDropdownq">
+                    <a class="dropdown-item" href="/home/addpolicy">Policy Registeration</a>
+                    <a class="dropdown-item" href="/home/showpolicy">Shows The Registered Policy</a>
+                </div>
+</li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span style="font-size:15px; width:100%; text-wrap:initial; overflow-wrap:break-word">Endorsement</span>
+                </a>
+                <div class="dropdown-menu row" style="background-color:white; width:220px; border:2px black solid;" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item col-md-12" href="/home/addendousement">Endorsement Registeration</a>
+                    <a class="dropdown-item col-md-12" style="text-wrap:normal;" href="/home/showendousement">Shows The Endorsemnet</a>
+                </div>
+            </li>
+ <li class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span style="font-size:15px;">Receipt</span>
+                </a>
+     <div class="dropdown-menu" style="background-color:white; width:220px; border:2px black solid;" aria-labelledby="pagesDropdown">
+         <h6 class="dropdown-header">Receipt Modifier</h6>
+         <a class="dropdown-item" href="/home/addreceipt">Add The Receipt</a>
+         <a class="dropdown-item" href="/home/showreceipt">Shows The Receipt</a>
+     </div>
+ </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link " href="/home/logout" >
+                    <span style="font-size:15px;">Logout</span>
+                </a>
+               </li>
+            </ul>
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumbs-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active">Overview</li>
+                </ol>
+                <div class="col-md-12 " style="overflow:auto; animation-duration:4s;">
+                <!-- Icon Cards-->
+                @RenderBody()
+<div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Iqbal Sorathia 2019</span>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div style="display:none;">
+    <!-- Core plugin JavaScript-->
+    <!-- Custom scripts for all pages-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

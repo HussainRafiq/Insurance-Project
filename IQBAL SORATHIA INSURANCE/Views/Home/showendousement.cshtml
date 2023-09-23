@@ -1,0 +1,88 @@
+﻿@model IEnumerable<IQBAL_SORATHIA_INSURANCE.Models.endousment>
+
+@{
+    ViewBag.Title = "showendousement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Endousements</h2>
+
+<style>
+    td {
+        font-size: 12px;
+    }
+</style>
+
+
+<table class="table table-dark ">
+    <tr>
+        <th>Date  </th>
+        <th>Endousement</th>
+        <th>Policy No</th>
+        <th>Name Of Insured</th>
+        <th>Sum Insured</th>
+        <th>Date Of Expiry</th>
+        <th style="background-color:green;">Gross Premium</th>
+        <th style="background-color:green;">Net Premium</th>
+        <th style="background-color:red;">Gross Premium</th>
+        <th style="background-color:red;">Net Premium</th>
+        <th>Receipt</th>
+        <th>Detail</th>
+        <th>Remarks</th>
+        <th></th>
+    </tr>
+    <tbody style="overflow:auto">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.endousment1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.policy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameofinsured)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.suminsured)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateofexpiry)
+                </td>
+                <td style="background-color:green">
+                    @Html.DisplayFor(modelItem => item.addgross)
+                </td>
+                <td style="background-color:green">
+                    @Html.DisplayFor(modelItem => item.addnet)
+                </td>
+                <td style="background-color:red">
+                    @Html.DisplayFor(modelItem => item.lessgross)
+                </td>
+                <td style="background-color:red">
+                    @Html.DisplayFor(modelItem => item.lessnet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.receipt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "detailendousement", new { id = item.id }, new { @class = "btn btn-success", target = "_blank" })
+
+                    @Html.ActionLink("Edit", "editendousement", new { id = item.id }, new { @class = "btn btn-success" })
+
+
+                        @Html.ActionLink("Delete", "deleteendousement", new { id = item.id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

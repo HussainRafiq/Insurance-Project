@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adinsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="endousment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="varchar" MaxLength="50" />
+    <Property Name="endousment" Type="varchar" MaxLength="50" />
+    <Property Name="policy" Type="varchar" MaxLength="50" />
+    <Property Name="nameofinsured" Type="varchar" MaxLength="50" />
+    <Property Name="suminsured" Type="varchar" MaxLength="50" />
+    <Property Name="dateofexpiry" Type="varchar" MaxLength="50" />
+    <Property Name="addgross" Type="varchar" MaxLength="50" />
+    <Property Name="addnet" Type="varchar" MaxLength="50" />
+    <Property Name="lessgross" Type="varchar" MaxLength="50" />
+    <Property Name="lessnet" Type="varchar" MaxLength="50" />
+    <Property Name="receipt" Type="varchar" MaxLength="50" />
+    <Property Name="detail" Type="text" />
+    <Property Name="remarks" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'adinsurance.dbo.login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="marinecover">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="varchar" MaxLength="50" />
+    <Property Name="cno" Type="varchar" MaxLength="50" />
+    <Property Name="nameofbank" Type="varchar" MaxLength="100" />
+    <Property Name="nameofinsured" Type="varchar" MaxLength="100" />
+    <Property Name="foreignvalues" Type="varchar" MaxLength="50" />
+    <Property Name="pakrs" Type="varchar" MaxLength="50" />
+    <Property Name="item" Type="varchar" MaxLength="50" />
+    <Property Name="slipmentfrom" Type="varchar" MaxLength="100" />
+    <Property Name="remarks" Type="text" />
+    <Property Name="equivalentvalue" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="policy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="varchar" MaxLength="50" />
+    <Property Name="policy" Type="varchar" MaxLength="50" />
+    <Property Name="nameofinsured" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="suminsuredvalue" Type="varchar" MaxLength="50" />
+    <Property Name="grosspremium" Type="varchar" MaxLength="50" />
+    <Property Name="netpremium" Type="varchar" MaxLength="50" />
+    <Property Name="receipt" Type="varchar" MaxLength="50" />
+    <Property Name="endousement" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="dateofexpiry" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="int" />
+    <Property Name="cno" Type="varchar" MaxLength="50" />
+    <Property Name="risk" Type="varchar" MaxLength="50" />
+    <Property Name="nameofvessel" Type="varchar" MaxLength="50" />
+    <Property Name="detail" Type="text" />
+    <Property Name="class" Type="text" />
+    <Property Name="vehicledetail" Type="text" />
+  </EntityType>
+  <EntityType Name="receipt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="varchar" MaxLength="50" />
+    <Property Name="receipt" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="policy" Type="varchar" MaxLength="50" />
+    <Property Name="nameofinsured" Type="varchar" MaxLength="50" />
+    <Property Name="marine" Type="varchar" MaxLength="50" />
+    <Property Name="fire" Type="varchar" MaxLength="50" />
+    <Property Name="engineering" Type="varchar" MaxLength="50" />
+    <Property Name="motor" Type="varchar" MaxLength="50" />
+    <Property Name="miscilinious" Type="varchar" MaxLength="50" />
+    <Property Name="hull" Type="varchar" MaxLength="50" />
+    <Property Name="health" Type="varchar" MaxLength="50" />
+    <Property Name="remainingnet" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'adinsurance.dbo.type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="adinsuranceModelStoreContainer">
+    <EntitySet Name="endousment" EntityType="Self.endousment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marinecover" EntityType="Self.marinecover" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="policy" EntityType="Self.policy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="receipt" EntityType="Self.receipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [login].[id] AS [id], 
+    [login].[name] AS [name], 
+    [login].[password] AS [password]
+    FROM [dbo].[login] AS [login]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="type" EntityType="Self.type" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [type].[id] AS [id], 
+    [type].[name] AS [name]
+    FROM [dbo].[type] AS [type]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,218 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.policy
+
+@{
+    ViewBag.Title = "addpolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    function kgal(b) {
+        var g = document.getElementById("g");
+
+        if (b != "") {
+            g.value = parseInt(@ViewBag.gross)+parseInt(b);
+        }
+        else {
+            g.value ='@ViewBag.gross';
+        }
+    }
+    function knal(b) {
+        var n = document.getElementById("n");
+
+        if (b != "") {
+            n.value = parseInt(b) + parseInt(@ViewBag.net);
+        } else {
+            n.value ='@ViewBag.net';
+        }
+    } function show(id) {
+        var cno = document.getElementById("cno").style.display = "none";
+        var vessel = document.getElementById("vessel").style.display = "none";
+        var risk = document.getElementById("risk").style.display = "none";
+        var detail = document.getElementById("detail").style.display = "none";
+        var clas = document.getElementById("class").style.display = "none";
+        var vdetail = document.getElementById("vdetail").style.display = "none";
+        if (id == 1) {
+            var cno = document.getElementById("cno").style.display = "block";
+
+            var vessel = document.getElementById("vessel").style.display = "block";
+
+        } else if (id == 2) {
+            var risk = document.getElementById("risk").style.display = "block";
+
+        } else if (id == 3) {
+            var risk = document.getElementById("risk").style.display = "block";
+
+        } else if (id == 4) {
+            var risk = document.getElementById("risk").style.display = "block";
+            var vdetail = document.getElementById("vdetail").style.display = "block";
+
+        }
+        else if (id == 5) {
+            var risk = document.getElementById("risk").style.display = "block";
+            var detail = document.getElementById("detail").style.display = "block";
+
+        } else if (id == 6) {
+            var risk = document.getElementById("risk").style.display = "block";
+            var clas = document.getElementById("class").style.display = "block";
+
+            var detail = document.getElementById("detail").style.display = "block";
+
+        }
+        else if (id == 7) {
+            var risk = document.getElementById("risk").style.display = "block";
+       
+            var detail = document.getElementById("detail").style.display = "block";
+
+        }
+
+
+
+    }
+</script>
+
+<h2>Register Policy</h2>
+
+<h3 class="alert-info">@ViewBag.msg</h3>
+<style>
+    .form-control {
+        font-size: 15px;
+    }
+
+    .btn-success {
+        font-size: 15px;
+    }
+    .control-label {
+        font-size: 15px;
+    }
+</style>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Date</label>    <div class="col-md-10">
+                @Html.TextBoxFor(model => model.date, new { @class="form-control",type="date"})
+                @Html.ValidationMessageFor(model => model.date)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Policy No</label>  <div class="col-md-10">
+                @Html.TextBoxFor(model => model.policy1, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.policy1)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Name Of Inssured</label>     <div class="col-md-10">
+                @Html.TextBoxFor(model => model.nameofinsured, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.nameofinsured)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Sum Inssured Value</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.suminsuredvalue, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.suminsuredvalue)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Gross Premium</label>   <div class="col-md-10">
+                @Html.TextBoxFor(model => model.grosspremium, new { @class = "form-control", onkeyup = "kgal(this.value)" })
+                @Html.ValidationMessageFor(model => model.grosspremium)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Net Premium</label>              <div class="col-md-10">
+                @Html.TextBoxFor(model => model.netpremium, new { @class = "form-control", onkeyup = "knal(this.value)" })
+                @Html.ValidationMessageFor(model => model.netpremium)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Type</label>  <div class="col-md-10">
+                @Html.DropDownListFor(model => model.type, new SelectList(ViewBag.type, "id", "name"), new { @class = "form-control", onChange = "show(this.value)" })
+                @Html.ValidationMessageFor(model => model.type)
+            </div>
+        </div>
+
+        <div class="form-group" id="cno" style="">
+            <label class="control-label col-md-2" for="nameofbank">CNO</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.cno, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.cno)
+            </div>
+        </div>
+
+        <div class="form-group" id="risk" style="display:none;">
+            <label class="control-label col-md-2" for="nameofbank">Risk</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.risk, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.risk)
+            </div>
+        </div>
+
+        <div class="form-group" id="vessel" style="">
+            <label class="control-label col-md-2" for="nameofbank">Name Of Vessel</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.nameofvessel, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.nameofvessel)
+            </div>
+        </div>
+
+        <div class="form-group" id="detail" style="display:none;">
+            <label class="control-label col-md-2" for="nameofbank">Detail</label>      <div class="col-md-10">
+                @Html.TextAreaFor(model => model.detail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.detail)
+            </div>
+        </div>
+       
+        <div class="form-group" id="class" style="display:none;">
+            <label class="control-label col-md-2" for="nameofbank">Class</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.@class, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.@class)
+            </div>
+        </div>
+
+        <div class="form-group" id="vdetail" style="display:none;">
+            <label class="control-label col-md-2" for="nameofbank">Vehicle Detail</label>      <div class="col-md-10">
+                @Html.TextAreaFor(model => model.vehicledetail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.vehicledetail)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Endousment</label>     <div class="col-md-10">
+                @Html.TextBoxFor(model => model.endousement, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.endousement)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Remarks</label>  <div class="col-md-10">
+                @Html.TextAreaFor(model => model.remarks, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.remarks)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Date Of Expiry</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.dateofexpiry, new { @class="form-control",type="date"})
+                @Html.ValidationMessageFor(model => model.dateofexpiry)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Total Gross Premium</label>      <div class="col-md-10">
+            <input type="text" value="@ViewBag.gross" readonly id="g" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Total Net Premium</label>      <div class="col-md-10">
+                <input type="text" value="@ViewBag.net" id="n" readonly class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" style="font-size:15px;"  class="btn btn-secondary" />
+            </div>
+        </div>
+    </div>
+}
+
+

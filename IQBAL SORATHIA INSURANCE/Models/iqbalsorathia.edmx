@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="adinsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="endousment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="endousment" Type="varchar" MaxLength="50" />
+          <Property Name="policy" Type="varchar" MaxLength="50" />
+          <Property Name="nameofinsured" Type="varchar" MaxLength="50" />
+          <Property Name="suminsured" Type="varchar" MaxLength="50" />
+          <Property Name="dateofexpiry" Type="varchar" MaxLength="50" />
+          <Property Name="addgross" Type="varchar" MaxLength="50" />
+          <Property Name="addnet" Type="varchar" MaxLength="50" />
+          <Property Name="lessgross" Type="varchar" MaxLength="50" />
+          <Property Name="lessnet" Type="varchar" MaxLength="50" />
+          <Property Name="receipt" Type="varchar" MaxLength="50" />
+          <Property Name="detail" Type="text" />
+          <Property Name="remarks" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'adinsurance.dbo.login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="marinecover">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="cno" Type="varchar" MaxLength="50" />
+          <Property Name="nameofbank" Type="varchar" MaxLength="100" />
+          <Property Name="nameofinsured" Type="varchar" MaxLength="100" />
+          <Property Name="foreignvalues" Type="varchar" MaxLength="50" />
+          <Property Name="pakrs" Type="varchar" MaxLength="50" />
+          <Property Name="item" Type="varchar" MaxLength="50" />
+          <Property Name="slipmentfrom" Type="varchar" MaxLength="100" />
+          <Property Name="remarks" Type="text" />
+          <Property Name="equivalentvalue" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="policy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="policy" Type="varchar" MaxLength="50" />
+          <Property Name="nameofinsured" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="suminsuredvalue" Type="varchar" MaxLength="50" />
+          <Property Name="grosspremium" Type="varchar" MaxLength="50" />
+          <Property Name="netpremium" Type="varchar" MaxLength="50" />
+          <Property Name="receipt" Type="varchar" MaxLength="50" />
+          <Property Name="endousement" Type="varchar" MaxLength="50" />
+          <Property Name="remarks" Type="varchar" MaxLength="50" />
+          <Property Name="dateofexpiry" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="int" />
+          <Property Name="cno" Type="varchar" MaxLength="50" />
+          <Property Name="risk" Type="varchar" MaxLength="50" />
+          <Property Name="nameofvessel" Type="varchar" MaxLength="50" />
+          <Property Name="detail" Type="text" />
+          <Property Name="class" Type="text" />
+          <Property Name="vehicledetail" Type="text" />
+        </EntityType>
+        <EntityType Name="receipt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="receipt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="policy" Type="varchar" MaxLength="50" />
+          <Property Name="nameofinsured" Type="varchar" MaxLength="50" />
+          <Property Name="marine" Type="varchar" MaxLength="50" />
+          <Property Name="fire" Type="varchar" MaxLength="50" />
+          <Property Name="engineering" Type="varchar" MaxLength="50" />
+          <Property Name="motor" Type="varchar" MaxLength="50" />
+          <Property Name="miscilinious" Type="varchar" MaxLength="50" />
+          <Property Name="hull" Type="varchar" MaxLength="50" />
+          <Property Name="health" Type="varchar" MaxLength="50" />
+          <Property Name="remainingnet" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'adinsurance.dbo.type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="adinsuranceModelStoreContainer">
+          <EntitySet Name="endousment" EntityType="Self.endousment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marinecover" EntityType="Self.marinecover" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="policy" EntityType="Self.policy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="receipt" EntityType="Self.receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [login].[id] AS [id], 
+    [login].[name] AS [name], 
+    [login].[password] AS [password]
+    FROM [dbo].[login] AS [login]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="type" EntityType="Self.type" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [type].[id] AS [id], 
+    [type].[name] AS [name]
+    FROM [dbo].[type] AS [type]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adinsuranceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="endousment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endousment1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="policy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameofinsured" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="suminsured" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateofexpiry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addgross" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addnet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lessgross" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lessnet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receipt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="marinecover">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameofbank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nameofinsured" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="foreignvalues" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pakrs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="slipmentfrom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="equivalentvalue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="policy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="policy1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameofinsured" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="suminsuredvalue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="grosspremium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="netpremium" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receipt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endousement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateofexpiry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="cno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="risk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameofvessel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="class" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vehicledetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="receipt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="receipt1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="policy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nameofinsured" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="marine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="engineering" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="motor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="miscilinious" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hull" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="health" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remainingnet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="adinsuranceEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="endousments" EntityType="Self.endousment" />
+          <EntitySet Name="marinecovers" EntityType="Self.marinecover" />
+          <EntitySet Name="policies" EntityType="Self.policy" />
+          <EntitySet Name="receipts" EntityType="Self.receipt" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="types" EntityType="Self.type" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adinsuranceModelStoreContainer" CdmEntityContainer="adinsuranceEntities1">
+          <EntitySetMapping Name="endousments">
+            <EntityTypeMapping TypeName="adinsuranceModel.endousment">
+              <MappingFragment StoreEntitySet="endousment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="endousment1" ColumnName="endousment" />
+                <ScalarProperty Name="policy" ColumnName="policy" />
+                <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+                <ScalarProperty Name="suminsured" ColumnName="suminsured" />
+                <ScalarProperty Name="dateofexpiry" ColumnName="dateofexpiry" />
+                <ScalarProperty Name="addgross" ColumnName="addgross" />
+                <ScalarProperty Name="addnet" ColumnName="addnet" />
+                <ScalarProperty Name="lessgross" ColumnName="lessgross" />
+                <ScalarProperty Name="lessnet" ColumnName="lessnet" />
+                <ScalarProperty Name="receipt" ColumnName="receipt" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marinecovers">
+            <EntityTypeMapping TypeName="adinsuranceModel.marinecover">
+              <MappingFragment StoreEntitySet="marinecover">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="cno" ColumnName="cno" />
+                <ScalarProperty Name="nameofbank" ColumnName="nameofbank" />
+                <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+                <ScalarProperty Name="foreignvalues" ColumnName="foreignvalues" />
+                <ScalarProperty Name="pakrs" ColumnName="pakrs" />
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="slipmentfrom" ColumnName="slipmentfrom" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="equivalentvalue" ColumnName="equivalentvalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="policies">
+            <EntityTypeMapping TypeName="adinsuranceModel.policy">
+              <MappingFragment StoreEntitySet="policy">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="policy1" ColumnName="policy" />
+                <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+                <ScalarProperty Name="suminsuredvalue" ColumnName="suminsuredvalue" />
+                <ScalarProperty Name="grosspremium" ColumnName="grosspremium" />
+                <ScalarProperty Name="netpremium" ColumnName="netpremium" />
+                <ScalarProperty Name="receipt" ColumnName="receipt" />
+                <ScalarProperty Name="endousement" ColumnName="endousement" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="dateofexpiry" ColumnName="dateofexpiry" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cno" ColumnName="cno" />
+                <ScalarProperty Name="risk" ColumnName="risk" />
+                <ScalarProperty Name="nameofvessel" ColumnName="nameofvessel" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="vehicledetail" ColumnName="vehicledetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="receipts">
+            <EntityTypeMapping TypeName="adinsuranceModel.receipt">
+              <MappingFragment StoreEntitySet="receipt">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="receipt1" ColumnName="receipt" />
+                <ScalarProperty Name="policy" ColumnName="policy" />
+                <ScalarProperty Name="nameofinsured" ColumnName="nameofinsured" />
+                <ScalarProperty Name="marine" ColumnName="marine" />
+                <ScalarProperty Name="fire" ColumnName="fire" />
+                <ScalarProperty Name="engineering" ColumnName="engineering" />
+                <ScalarProperty Name="motor" ColumnName="motor" />
+                <ScalarProperty Name="miscilinious" ColumnName="miscilinious" />
+                <ScalarProperty Name="hull" ColumnName="hull" />
+                <ScalarProperty Name="health" ColumnName="health" />
+                <ScalarProperty Name="remainingnet" ColumnName="remainingnet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="adinsuranceModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="types">
+            <EntityTypeMapping TypeName="adinsuranceModel.type">
+              <MappingFragment StoreEntitySet="type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

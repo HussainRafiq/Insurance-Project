@@ -1,0 +1,140 @@
+﻿@model IQBAL_SORATHIA_INSURANCE.Models.endousment
+
+@{
+    ViewBag.Title = "addendousement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-control {
+        font-size: 15px;
+    }
+
+    .btn-success {
+        font-size: 15px;
+    }
+
+    .control-label {
+        font-size: 15px;
+    }
+</style>
+
+<h2>Endousement Registeration</h2>
+<h3 class="alert-info">@ViewBag.msg</h3>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+     
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Date</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.date,new{@class="form-control",type="date"})
+                @Html.ValidationMessageFor(model => model.date)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Endousement</label>    
+           <div class="col-md-10">
+                @Html.TextBoxFor(model => model.endousment1,new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.endousment1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="nameofbank">Policy No.</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.policy,new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.policy)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Name Of Insured</label>         <div class="col-md-10">
+                @Html.TextBoxFor(model => model.nameofinsured,new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.nameofinsured)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Sum Of Insured</label>               <div class="col-md-10">
+                @Html.TextBoxFor(model => model.suminsured,new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.suminsured)
+            </div>
+        </div>
+
+        <div class="form-group"><label class="control-label col-md-2" for="nameofbank">Date Of Expiry</label>     <div class="col-md-10">
+                @Html.TextBoxFor(model => model.dateofexpiry,new{@class="form-control",type="date"})
+                @Html.ValidationMessageFor(model => model.dateofexpiry)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" style="color:green" for="nameofbank">ADD</label>      <div class="col-md-10">
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="nameofbank">Gross Premium</label>      <div class="col-md-10">
+            @Html.TextBoxFor(model => model.addgross,new{@class="form-control"})
+            @Html.ValidationMessageFor(model => model.addgross)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="nameofbank">Net Premium</label>      <div class="col-md-10">
+                @Html.TextBoxFor(model => model.addnet,new{@class="form-control"})
+                @Html.ValidationMessageFor(model => model.addnet)
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" style="color:red" for="nameofbank">LESS</label>      <div class="col-md-10">
+
+            <div class="form-group">
+
+                <label class="control-label col-md-2" for="nameofbank">Gross Premium</label>      <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.lessgross,new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.lessgross)
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="nameofbank">Net Premium</label>      <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.lessnet,new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.lessnet)
+                    </div>
+                </div>
+</div>
+            <div class="form-group">
+
+                <label class="control-label col-md-2" for="nameofbank">Receipt</label>      <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.receipt,new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.receipt)
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="nameofbank">Detail</label>      <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.detail,new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.detail)
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="nameofbank">Remarks</label>      <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.remarks,new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.remarks)
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="SUBMIT" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+   </div>
+        </div>             
+        }
+                

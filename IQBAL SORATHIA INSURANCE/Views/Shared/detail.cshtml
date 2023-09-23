@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard - Iqbal Sorathia</title>
+    @Styles.Render("~/Content/css")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="padding:0px; margin-left:30px">
+
+</body>
+<header style="width:100%; height:50px; background-color:black;">
+    <h3 style="text-align:center; color:white; padding:10px;"><strong>IQBAL SORATHIA</strong></h3>
+
+
+</header>
+<div style="margin:20px; font-size:18px;">
+    @RenderBody()
+</div>
+<div id="hide">
+    <button class="btn btn-dark" style="font-size:15px; color:silver" onclick="printi()">Print</button> 
+</div>
+
+<script>
+    function printi() {
+        var div = document.getElementById("hide");
+        div.style.display = "none";
+        print();
+        div.style.display = "block";
+
+
+
+    }
+
+</script>
+
+
+
+</html>

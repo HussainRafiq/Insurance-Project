@@ -1,0 +1,97 @@
+﻿@model IEnumerable<IQBAL_SORATHIA_INSURANCE.Models.covernotewithpolicy>
+
+@{
+    ViewBag.Title = "showmarinecovernote";
+    int i=0;
+    }
+
+<h2>List Marine Cover Note</h2>
+<script language="javascript" type="text/javascript">
+
+    function printTbl() {
+        var TableToPrint = document.getElementById('myt');
+        newWin = window.open("");
+        document.getElementById('jammal').style.display = 'none';
+        newWin.document.write(TableToPrint.outerHTML + "<script>document.getElementById('jammal').style.display='none';<//script>");
+        newWin.print();
+        document.getElementById('jammal').style.display = 'block';
+
+        newWin.close();
+       
+    }
+</script>
+<button onclick="printTbl()" class="btn btn-default" >Print</button>
+<table class="table table-dark" id="myt"  style="font-size:12px;">
+    <tr>
+<th>S no.</th>
+        <th>Date </th>
+        <th>CNO</th>
+        <th>Name Of Bank</th>
+        <th>Name Of Insured</th>
+
+        <th>Equivalent Values </th>
+        <th>Foreign Values </th>
+        <th>Pakistan Rs</th>
+        <th>Item</th>
+        <th>Slipment From</th>
+        <th>Policy No</th>
+        <th>Remarks</th>
+        <th></th>
+    </tr>
+    <tbody style="height:auto; overflow:auto;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(++i)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.cno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.nameofbank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.nameofinsured)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.equivalentvalue)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.foreignvalues)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.pakrs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.item)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.slipmentfrom)
+                </td>
+                <td>
+                    @Html.ActionLink(item.pol.policy1, "detailpolicy", new { id = item.pol.id }, new { target = "_blank" })
+
+                   
+</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.man.remarks)
+                </td>
+                <td >
+                    <div id="jammal">
+                        @Html.ActionLink("Detail", "detailmarinecovernote", new { id = item.man.id }, new { @class = "btn btn-success", target = "_blank" })
+                        @Html.ActionLink("Edit", "editmarinecovernote", new { id = item.man.id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Delete", "deletemarinecovernote", new { id = item.man.id }, new { @class = "btn btn-danger" })
+
+
+                                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
